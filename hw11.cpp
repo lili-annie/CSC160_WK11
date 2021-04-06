@@ -102,7 +102,7 @@ vector<double> getDailyAverage(vector<WeatherReport> reports) {
       - Push average value onto output vector
     - Return the vector
   */
-
+  
 }
 
 
