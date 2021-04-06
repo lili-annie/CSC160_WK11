@@ -1,0 +1,5 @@
+set xtics rotate by -45
+set title 'Daily Avg'
+set terminal jpeg
+set output 'daily_avg.png'
+plot 'plot_data.txt' using 1:2 title 'daily averages' with lines linetype 1 linewidth 1
