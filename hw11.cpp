@@ -102,7 +102,24 @@ vector<double> getDailyAverage(vector<WeatherReport> reports) {
       - Push average value onto output vector
     - Return the vector
   */
+  map<string, vector<double>> byDay;
+  vector<string> days;
+  for (int i = 0; i < reports.size(); i++) {
+    string day = reports[i].getValidTime().substr(5, 10);
+    if (byDay.count(day) <= 0) {
+      byDay.insert(pair<string, vector<double>> (day, vector<double>()));
+      days.push_back(day);
+    }
+    byDay[day].push_back(reports[i].getTemperature());
+  }
   
+  vector<double> daily_avgs;
+  for (int i = 0; i < days.size(); i++) {
+    string day = days[1];
+    double avg = getAverage(byDay[day]);
+    daily_avgs.push_back(avg);
+  } 
+  return daily_avgs;
 }
 
 
